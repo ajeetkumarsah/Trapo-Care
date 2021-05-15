@@ -1,0 +1,56 @@
+name: trapo_care
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  after_layout: ^1.1.0
+  cached_network_image: ^3.0.0
+  carousel_slider: ^3.0.0
+  change_app_package_name: ^1.0.0
+  cloud_firestore: ^0.13.0+1
+  csc_picker: ^0.2.5
+  firebase_core: ^0.4.0+9
+  firebase_database: null
+  firebase_storage: ^3.0.8
+  flutter_inappwebview: ^5.3.2
+  flutter_svg_provider: ^0.1.9
+  font_awesome_flutter: ^9.0.0
+  google_fonts: ^2.0.0
+  image_picker: null
+  photo_view: ^0.11.1
+  random_string: ^2.0.1
+  shared_preferences: ^2.0.5
+  shimmer: ^2.0.0
+  timeago: ^3.0.2
+  url_launcher: ^6.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/logo.png
+    - assets/img/
+    - assets/icons/
+    - assets/icons/eIcon/
+    - assets/icons/locationIcon/
+    - assets/icons/postIcon/
+    - assets/icons/searchIcon/
+    - assets/img/plusIcon/
+    - assets/logo/trapo/
+    - assets/logo/trapoCare/
+    - assets/icons/feedback/
+    - assets/survey/
+    - assets/icons/empty/
