@@ -17,7 +17,6 @@ class YourGuideScreen extends StatefulWidget {
 
 class _YourGuideScreenState extends State<YourGuideScreen> {
   CrudMethods crudMethods = new CrudMethods();
-
   Stream blogsStream;
   // ignore: unused_element
   void _onLoading() {
@@ -189,24 +188,28 @@ class _YourGuideScreenState extends State<YourGuideScreen> {
                 SizedBox(
                   height: 10,
                 ),
-                CachedNetworkImage(
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(6),
+                  child: CachedNetworkImage(
                     fit: BoxFit.fill,
                     imageUrl: record.url,
                     placeholder: (context, url) => Shimmer.fromColors(
-                          baseColor: Colors.grey[300],
-                          highlightColor: Colors.grey[100],
-                          enabled: true,
+                      baseColor: Colors.grey[300],
+                      highlightColor: Colors.grey[100],
+                      enabled: true,
+                      child: Container(
+                          height: 300,
+                          width: MediaQuery.of(context).size.width,
                           child: Container(
-                              height: 300,
-                              width: MediaQuery.of(context).size.width,
-                              child: Container(
-                                color: Colors.grey,
-                                height: 300,
-                                width: MediaQuery.of(context).size.width,
-                              )
-                              //Center(child: Text('Loading...'))
-                              ),
-                        )),
+                            color: Colors.grey,
+                            height: 300,
+                            width: MediaQuery.of(context).size.width,
+                          )
+                          //Center(child: Text('Loading...'))
+                          ),
+                    ),
+                  ),
+                ),
                 //Image.network(record.url),
                 SizedBox(
                   height: 10,

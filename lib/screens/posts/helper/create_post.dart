@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -46,7 +46,9 @@ class _CreateBlogState extends State<CreateBlog> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                new CircularProgressIndicator(),
+                new CircularProgressIndicator(
+                  color: blueColor,
+                ),
                 new Text(
                   "Please wait...",
                   style: TextStyle(
@@ -86,15 +88,16 @@ class _CreateBlogState extends State<CreateBlog> {
       var downloadUrl = await (await task.onComplete).ref.getDownloadURL();
       print("this is url $downloadUrl");
 
-      Map<String, String> blogMap = {
+      Map<String, dynamic> postMap = {
         "imgUrl": downloadUrl,
         "authorName": authorName,
         "Resource Type": selectedResourceType,
         "Resource Subtype": selectedResourceSubtype,
         'Other Details': otherDetails,
         'Status': 'Unverified',
+        'Last Updated': FieldValue.serverTimestamp(),
       };
-      crudMethods.addData(blogMap).then((result) {
+      crudMethods.addData(postMap).then((result) {
         Navigator.pop(context);
       });
     } else {}

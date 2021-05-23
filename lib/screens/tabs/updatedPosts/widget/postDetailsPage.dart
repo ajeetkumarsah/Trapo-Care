@@ -142,6 +142,17 @@ class UpdatedPostViewDetails extends StatelessWidget {
                 Divider(
                   height: 40.0,
                 ),
+                ListTile(
+                  leading: Icon(
+                    FontAwesomeIcons.info,
+                    color: blueColor,
+                  ),
+                  title: Text('Other Details'),
+                  subtitle: Text(otherDetails ?? 'Not Available'),
+                ),
+                Divider(
+                  height: 40.0,
+                ),
                 new Center(
                   // ignore: deprecated_member_use
                   child: new FlatButton(

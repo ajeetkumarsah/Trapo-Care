@@ -104,6 +104,7 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
       'Last Updated': FieldValue.serverTimestamp(),
       'Status': 'Unverified',
       'Other Details': otherDetails,
+      'Verified By':'',
     };
 
     ds.setData(post).whenComplete(() {
