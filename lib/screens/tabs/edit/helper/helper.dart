@@ -38,6 +38,7 @@ List<String> covidTestingResource = [
 List<String> homeCareFacilitiesResource = [
   'Home ICU Setup',
   'Nursing Staff',
+  'Safe Home',
 ];
 List<String> hospitalResource = [
   'Private',

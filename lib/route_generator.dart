@@ -1,22 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:trapo_care/screens/ambulance/ambulance.dart';
-import 'package:trapo_care/screens/beds_Ventilators/beds_Icu.dart';
 import 'package:trapo_care/screens/coWin/coWin_Screen.dart';
 import 'package:trapo_care/screens/coWin/hospital.dart';
-import 'package:trapo_care/screens/covid/covid.dart';
-import 'package:trapo_care/screens/delivery/delivery.dart';
-import 'package:trapo_care/screens/doctors/doctor.dart';
 import 'package:trapo_care/screens/donate/donate_screen.dart';
 import 'package:trapo_care/screens/feedback/feedback.dart';
-import 'package:trapo_care/screens/helpline/helpline.dart';
-import 'package:trapo_care/screens/homeCare/homeCare.dart';
 import 'package:trapo_care/screens/homeScreen/homeScreen.dart';
-import 'package:trapo_care/screens/meals/meals.dart';
-import 'package:trapo_care/screens/oxygen/oxygen.dart';
-import 'package:trapo_care/screens/plasma_blood/plasma_blood.dart';
 import 'package:trapo_care/screens/posts/helper/create_post.dart';
 import 'package:trapo_care/screens/posts/your_guide.dart';
-import 'package:trapo_care/screens/hospital/pvthospital.dart';
 import 'package:trapo_care/screens/survey/last_page.dart';
 import 'package:trapo_care/screens/survey/survey_screen_new.dart';
 import 'package:trapo_care/screens/tabs/edit/argument/haveAnyLeadsArgument.dart';
@@ -29,8 +18,19 @@ import 'package:trapo_care/screens/tabs/resources/argument.dart/resourcesArgumen
 import 'package:trapo_care/screens/tabs/updatedPosts/widget/postDetailsPage.dart';
 import 'package:trapo_care/screens/widgets/emptyview.dart';
 import 'package:trapo_care/screens/widgets/postViewDetails.dart';
-import 'package:trapo_care/screens/yourGuide/yourGuide.dart';
 import 'helper/screenArgumantHelper.dart';
+import 'screens/resource_tab/ambulance/ambulance.dart';
+import 'screens/resource_tab/beds_icu/beds_Icu.dart';
+import 'screens/resource_tab/covid/covid.dart';
+import 'screens/resource_tab/delivery/delivery.dart';
+import 'screens/resource_tab/doctors/doctor.dart';
+import 'screens/resource_tab/helpline/helpline.dart';
+import 'screens/resource_tab/homeCare/homeCare.dart';
+import 'screens/resource_tab/hospital/pvthospital.dart';
+import 'screens/resource_tab/meals/meals.dart';
+import 'screens/resource_tab/oxygen/oxygen.dart';
+import 'screens/resource_tab/plasma_blood/plasma_blood.dart';
+import 'screens/resource_tab/yourGuide/yourGuide.dart';
 import 'screens/splashScreen/onboardingScreen/screen/onboardingScreen.dart';
 
 class RouteGenerator {
@@ -129,46 +129,6 @@ class RouteGenerator {
             date: argument.date,
           );
         });
-      case '/pvtHospitalspostViewDetails':
-        return MaterialPageRoute(builder: (_) {
-          PlasmaBloodPostViewScreenArguments argument = args;
-          return PostViewDetails(
-            username: argument.username,
-            hospitalName: argument.hospitalName,
-            hAddress: argument.hAddress,
-            hContact: argument.hContact,
-            otherInfo: argument.otherInfo,
-            resourcestype: argument.resourcestype,
-            verifiedBy: argument.verifiedBy,
-          );
-        });
-      case '/ambulancePostViewDetails':
-        return MaterialPageRoute(builder: (_) {
-          PlasmaBloodPostViewScreenArguments argument = args;
-          return PostViewDetails(
-            username: argument.username,
-            hospitalName: argument.hospitalName,
-            hAddress: argument.hAddress,
-            hContact: argument.hContact,
-            otherInfo: argument.otherInfo,
-            resourcestype: argument.resourcestype,
-            verifiedBy: argument.verifiedBy,
-          );
-        });
-      case '/homeCarePostViewDetails':
-        return MaterialPageRoute(builder: (_) {
-          HomeCarePostViewScreenArguments argument = args;
-          return PostViewDetails(
-            username: argument.username,
-            hospitalName: argument.hospitalName,
-            hAddress: argument.hAddress,
-            hContact: argument.hContact,
-            otherInfo: argument.otherInfo,
-            resourcestype: argument.resourcestype,
-            verifiedBy: argument.verifiedBy,
-            pricePerDay: argument.pricePerDay,
-          );
-        });
 
       case '/home':
         return MaterialPageRoute(builder: (_) => HomeScreen());
@@ -181,14 +141,3 @@ class RouteGenerator {
   }
 }
 
-class PostViewScreenArguments {
-  final String username,
-      hospitalName,
-      hContact,
-      otherInfo,
-      hAddress,
-      resourcestype;
-
-  PostViewScreenArguments(this.username, this.hospitalName, this.hContact,
-      this.otherInfo, this.hAddress, this.resourcestype);
-}

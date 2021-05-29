@@ -2,10 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:trapo_care/controller/color.dart';
 import 'package:trapo_care/helper/imageHelper.dart';
-import 'package:trapo_care/screens/tabs/resources/argument.dart/resourcesArgument.dart';
-import 'package:timeago/timeago.dart' as timeago;
 import 'package:trapo_care/screens/tabs/updatedPosts/widget/search_screen.dart';
 import 'package:trapo_care/screens/widgets/circular_floating_buttons.dart';
+import 'package:trapo_care/screens/widgets/get_post.dart';
 
 class UpdatedScreen extends StatefulWidget {
   @override
@@ -74,6 +73,7 @@ class _UpdatedScreenState extends State<UpdatedScreen>
                 stream: Firestore.instance
                     .collection('Have any Leads')
                     .where('Status', isEqualTo: 'Verified')
+                    .orderBy('Last Updated', descending: true)
                     .snapshots(),
                 builder: (BuildContext context,
                     AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -83,192 +83,8 @@ class _UpdatedScreenState extends State<UpdatedScreen>
                     );
                   }
 
-                  return ListView(
-                    children: snapshot.data.documents.map((document) {
-                      Timestamp timestamp = document['Last Updated'];
-                      String _returnDate() {
-                        DateTime date = new DateTime.fromMillisecondsSinceEpoch(
-                            timestamp.millisecondsSinceEpoch);
-                        return timeago.format(date, locale: 'fr');
-                      }
-
-                      return Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: EdgeInsets.all(10),
-                            child: GestureDetector(
-                              onTap: () => Navigator.of(context)
-                                  .pushNamed('/updatedPostViewDetails',
-                                      arguments: ResourcesArguments(
-                                        document['State'],
-                                        document['City'],
-                                        document['Address'],
-                                        document['Resource Type'],
-                                        document['Resource Subtype'],
-                                        document['Other Details'],
-                                        document['Cost per Unit'],
-                                        document['Contact or Organization'],
-                                        document['Contact Number'],
-                                        document['Information Source'],
-                                        document['User Full Name'],
-                                        document['Last Updated'],
-                                      )),
-                              child: Container(
-                                padding: EdgeInsets.only(
-                                  left: 10,
-                                  right: 10,
-                                  top: 12.0,
-                                  bottom: 12.0,
-                                ),
-                                height: 100,
-                                decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(4.0)),
-                                    border: Border.all(
-                                      width: 1.5,
-                                      color: blueColor,
-                                    )),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      width: 60,
-                                      height: 60,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(10.0)),
-                                        border: Border.all(
-                                          color: Colors.white,
-                                          width: 2,
-                                        ),
-                                        boxShadow: [
-                                          BoxShadow(
-                                              color:
-                                                  Colors.grey.withOpacity(.3),
-                                              offset: Offset(0, 5),
-                                              blurRadius: 35)
-                                        ],
-                                      ),
-                                      child: Container(
-                                        padding: EdgeInsets.all(10),
-                                        child: document['Resource Type'] ==
-                                                'Oxygen'
-                                            ? Image.asset(oxygen)
-                                            : document['Resource Type'] ==
-                                                    'Beds'
-                                                ? Image.asset(bed)
-                                                : document['Resource Type'] ==
-                                                        'Plasma | Blood'
-                                                    ? Image.asset(bloodPlasma)
-                                                    : document['Resource Type'] ==
-                                                            'Ambulance'
-                                                        ? Image.asset(ambulance)
-                                                        : document['Resource Type'] ==
-                                                                'Covid Testing'
-                                                            ? Image.asset(covid)
-                                                            : document['Resource Type'] ==
-                                                                    'Home Care Facilities'
-                                                                ? Image.asset(
-                                                                    homeCare)
-                                                                : document['Resource Type'] ==
-                                                                        'Doctor'
-                                                                    ? Image.asset(
-                                                                        doctor)
-                                                                    : document['Resource Type'] ==
-                                                                            'Hospital'
-                                                                        ? Image.asset(
-                                                                            hospital)
-                                                                        : document['Resource Type'] ==
-                                                                                'Medicine'
-                                                                            ? Image.asset(medicine)
-                                                                            : Image.asset(otherResource),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.3,
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          // TextButton(
-                                          //     onPressed: () {
-                                          //       document.reference.updateData(
-                                          //           {'Status': 'Unverified'});
-                                          //     },
-                                          //     child: Text('update')),
-                                          Text(
-                                            document[
-                                                    'Contact or Organization'] ??
-                                                'No data',
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                color: blueColor,
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(
-                                            document['City'] ?? 'No data',
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                color: blueColor,
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          'Last updated : ' + _returnDate(),
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              color: blueColor,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.normal),
-                                        ),
-                                        Text(
-                                          document['Resource Subtype'] ??
-                                              'Not available',
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              color: redColor,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Text(
-                                          document['Contact Number'] ??
-                                              'No data',
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              color: blueColor,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      );
-                    }).toList(),
+                  return GetPosts(
+                    snapshot: snapshot,
                   );
                 }),
         floatingActionButton: Transform(
@@ -305,26 +121,6 @@ class _UpdatedScreenState extends State<UpdatedScreen>
               }
             },
           ),
-        )
-
-        //  CircularButton1(
-        //   color: redColor,
-        //   width: 60,
-        //   height: 60,
-        //   iconColor: whiteColor,
-        // icon: _isSearch
-        //     ? ImageIcon(AssetImage(
-        //         pluswhite,
-        //       ))
-        //     : ImageIcon(AssetImage(
-        //         search,
-        //       )),
-        //   onClick: () {
-        // setState(() {
-        //   _isSearch = !_isSearch;
-        // });
-        //   },
-        // ),
-        );
+        ));
   }
 }

@@ -6,18 +6,20 @@ import 'package:trapo_care/helper/imageHelper.dart';
 import 'package:trapo_care/screens/widgets/custom_appbar.dart';
 import 'package:trapo_care/screens/widgets/get_post.dart';
 
-class VaccineHospital extends StatefulWidget {
+class BedsVentilators extends StatefulWidget {
   @override
-  _VaccineHospitalState createState() => _VaccineHospitalState();
+  _BedsVentilatorsState createState() => _BedsVentilatorsState();
 }
 
-class _VaccineHospitalState extends State<VaccineHospital> {
+class _BedsVentilatorsState extends State<BedsVentilators> {
   int defaultChoiceIndex;
 
   List<String> _choicesList = [
     'All',
-    'Private',
-    'Government',
+    'ICU Bed',
+    'Ventilator Bed',
+    'Oxygen Bed',
+    'Non-Oxygen Bed'
   ];
 
   @override
@@ -31,24 +33,28 @@ class _VaccineHospitalState extends State<VaccineHospital> {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
-        resizeToAvoidBottomInset: true,
         backgroundColor: whiteColor,
+        resizeToAvoidBottomInset: true,
         appBar: CustomAppBar(
           onPressed: () => Navigator.pop(context),
-          title: 'Hospitals',
+          title: 'Beds and ICU',
           child: kBackBtn,
         ),
         body: StreamBuilder(
             stream: Firestore.instance
-                .collection('Hospitals')
+                .collection('Have any Leads')
                 .where('Status', isEqualTo: 'Verified')
-                .where('Resource Type', isEqualTo: 'Hospital')
+                .where('Resource Type', isEqualTo: 'Bed | ICU')
                 .where('Resource Subtype',
                     isEqualTo: defaultChoiceIndex == 1
-                        ? 'Private'
+                        ? 'ICU Bed'
                         : defaultChoiceIndex == 2
-                            ? 'Government'
-                            : null)
+                            ? 'Ventilator Bed'
+                            : defaultChoiceIndex == 3
+                                ? 'Oxygen Bed'
+                                : defaultChoiceIndex == 4
+                                    ? 'Non-Oxygen Bed'
+                                    : null)
                 .snapshots(),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -207,7 +213,7 @@ class _VaccineHospitalState extends State<VaccineHospital> {
                             ])),
                       ]),
                     ),
-                   GetPosts(
+                    GetPosts(
                       snapshot: snapshot,
                     ),
                   ]),

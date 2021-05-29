@@ -104,7 +104,7 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
       'Last Updated': FieldValue.serverTimestamp(),
       'Status': 'Unverified',
       'Other Details': otherDetails,
-      'Verified By':'',
+      'Verified By': '',
     };
 
     ds.setData(post).whenComplete(() {
@@ -328,17 +328,11 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
                         },
                       ),
                       MyTextFormField(
-                        labelText: 'Cost per Unit (in ₹) ',
+                        labelText: 'Cost per Unit in ₹ (Optional)',
                         isNumber: true,
-                        requiredField: true,
+                        // requiredField: true,
                         onChanged: (String n) {
                           getCostperUnit(n);
-                        },
-                        validator: (text) {
-                          if (text == null || text.isEmpty) {
-                            return 'Field can\'t be empty!';
-                          }
-                          return null;
                         },
                       ),
                       MyTextFormField(
@@ -363,7 +357,6 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
                         requiredField: true,
                         isNumber: true,
                         limit: true,
-                        initialValue: widget.lphone,
                         onChanged: (String a) {
                           getContactNumber(a);
                           setState(() =>

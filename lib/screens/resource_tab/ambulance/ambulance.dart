@@ -6,18 +6,19 @@ import 'package:trapo_care/helper/imageHelper.dart';
 import 'package:trapo_care/screens/widgets/custom_appbar.dart';
 import 'package:trapo_care/screens/widgets/get_post.dart';
 
-class VaccineHospital extends StatefulWidget {
+class Ambulance extends StatefulWidget {
   @override
-  _VaccineHospitalState createState() => _VaccineHospitalState();
+  _AmbulanceState createState() => _AmbulanceState();
 }
 
-class _VaccineHospitalState extends State<VaccineHospital> {
+class _AmbulanceState extends State<Ambulance> {
   int defaultChoiceIndex;
 
   List<String> _choicesList = [
     'All',
-    'Private',
-    'Government',
+    'Normal',
+    'Advanced Life Support',
+    'Mortuary Van',
   ];
 
   @override
@@ -31,24 +32,26 @@ class _VaccineHospitalState extends State<VaccineHospital> {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
-        resizeToAvoidBottomInset: true,
         backgroundColor: whiteColor,
+        resizeToAvoidBottomInset: true,
         appBar: CustomAppBar(
           onPressed: () => Navigator.pop(context),
-          title: 'Hospitals',
+          title: 'Ambulance',
           child: kBackBtn,
         ),
         body: StreamBuilder(
             stream: Firestore.instance
-                .collection('Hospitals')
+                .collection('Have any Leads')
                 .where('Status', isEqualTo: 'Verified')
-                .where('Resource Type', isEqualTo: 'Hospital')
+                .where('Resource Type', isEqualTo: 'Ambulance')
                 .where('Resource Subtype',
                     isEqualTo: defaultChoiceIndex == 1
-                        ? 'Private'
+                        ? 'Normal'
                         : defaultChoiceIndex == 2
-                            ? 'Government'
-                            : null)
+                            ? 'Advanced Life Support'
+                            : defaultChoiceIndex == 3
+                                ? 'Mortuary Van'
+                                : null)
                 .snapshots(),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {

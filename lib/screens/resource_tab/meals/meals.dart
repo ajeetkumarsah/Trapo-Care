@@ -6,18 +6,18 @@ import 'package:trapo_care/helper/imageHelper.dart';
 import 'package:trapo_care/screens/widgets/custom_appbar.dart';
 import 'package:trapo_care/screens/widgets/get_post.dart';
 
-class VaccineHospital extends StatefulWidget {
+class MealScreen extends StatefulWidget {
   @override
-  _VaccineHospitalState createState() => _VaccineHospitalState();
+  _MealScreenState createState() => _MealScreenState();
 }
 
-class _VaccineHospitalState extends State<VaccineHospital> {
+class _MealScreenState extends State<MealScreen> {
   int defaultChoiceIndex;
 
   List<String> _choicesList = [
     'All',
-    'Private',
-    'Government',
+    'Tiffin Service',
+    'Meal Provider',
   ];
 
   @override
@@ -35,19 +35,19 @@ class _VaccineHospitalState extends State<VaccineHospital> {
         backgroundColor: whiteColor,
         appBar: CustomAppBar(
           onPressed: () => Navigator.pop(context),
-          title: 'Hospitals',
+          title: 'Food delivery',
           child: kBackBtn,
         ),
         body: StreamBuilder(
             stream: Firestore.instance
-                .collection('Hospitals')
+                .collection('Have any Leads')
                 .where('Status', isEqualTo: 'Verified')
-                .where('Resource Type', isEqualTo: 'Hospital')
+                .where('Resource Type', isEqualTo: 'Food')
                 .where('Resource Subtype',
                     isEqualTo: defaultChoiceIndex == 1
-                        ? 'Private'
+                        ? 'Tiffin Service'
                         : defaultChoiceIndex == 2
-                            ? 'Government'
+                            ? 'Meal Provider'
                             : null)
                 .snapshots(),
             builder:
@@ -207,7 +207,7 @@ class _VaccineHospitalState extends State<VaccineHospital> {
                             ])),
                       ]),
                     ),
-                   GetPosts(
+                    GetPosts(
                       snapshot: snapshot,
                     ),
                   ]),

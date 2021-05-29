@@ -6,18 +6,19 @@ import 'package:trapo_care/helper/imageHelper.dart';
 import 'package:trapo_care/screens/widgets/custom_appbar.dart';
 import 'package:trapo_care/screens/widgets/get_post.dart';
 
-class VaccineHospital extends StatefulWidget {
+class PvtHospital extends StatefulWidget {
   @override
-  _VaccineHospitalState createState() => _VaccineHospitalState();
+  _PvtHospitalState createState() => _PvtHospitalState();
 }
 
-class _VaccineHospitalState extends State<VaccineHospital> {
+class _PvtHospitalState extends State<PvtHospital> {
   int defaultChoiceIndex;
 
   List<String> _choicesList = [
     'All',
     'Private',
     'Government',
+    'Safe Home',
   ];
 
   @override
@@ -31,8 +32,8 @@ class _VaccineHospitalState extends State<VaccineHospital> {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
-        resizeToAvoidBottomInset: true,
         backgroundColor: whiteColor,
+        resizeToAvoidBottomInset: true,
         appBar: CustomAppBar(
           onPressed: () => Navigator.pop(context),
           title: 'Hospitals',
@@ -40,7 +41,7 @@ class _VaccineHospitalState extends State<VaccineHospital> {
         ),
         body: StreamBuilder(
             stream: Firestore.instance
-                .collection('Hospitals')
+                .collection('Have any Leads')
                 .where('Status', isEqualTo: 'Verified')
                 .where('Resource Type', isEqualTo: 'Hospital')
                 .where('Resource Subtype',
@@ -48,7 +49,9 @@ class _VaccineHospitalState extends State<VaccineHospital> {
                         ? 'Private'
                         : defaultChoiceIndex == 2
                             ? 'Government'
-                            : null)
+                            : defaultChoiceIndex == 3
+                                ? 'Safe Home'
+                                : null)
                 .snapshots(),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -207,7 +210,7 @@ class _VaccineHospitalState extends State<VaccineHospital> {
                             ])),
                       ]),
                     ),
-                   GetPosts(
+                    GetPosts(
                       snapshot: snapshot,
                     ),
                   ]),

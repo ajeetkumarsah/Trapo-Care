@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:trapo_care/helper/imageHelper.dart';
 import 'package:trapo_care/screens/splashScreen/onboardingScreen/constants/constants.dart';
 import 'dart:async';
 
@@ -19,6 +20,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   void initState() {
     super.initState();
+    slider1;
+    slider2;
+    slider3;
   }
 
   @override

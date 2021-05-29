@@ -6,18 +6,18 @@ import 'package:trapo_care/helper/imageHelper.dart';
 import 'package:trapo_care/screens/widgets/custom_appbar.dart';
 import 'package:trapo_care/screens/widgets/get_post.dart';
 
-class VaccineHospital extends StatefulWidget {
+class HomeCare extends StatefulWidget {
   @override
-  _VaccineHospitalState createState() => _VaccineHospitalState();
+  _HomeCareState createState() => _HomeCareState();
 }
 
-class _VaccineHospitalState extends State<VaccineHospital> {
+class _HomeCareState extends State<HomeCare> {
   int defaultChoiceIndex;
 
   List<String> _choicesList = [
     'All',
-    'Private',
-    'Government',
+    'Home ICU Setup',
+    'Nursing Staff',
   ];
 
   @override
@@ -31,23 +31,23 @@ class _VaccineHospitalState extends State<VaccineHospital> {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
-        resizeToAvoidBottomInset: true,
         backgroundColor: whiteColor,
+        resizeToAvoidBottomInset: true,
         appBar: CustomAppBar(
           onPressed: () => Navigator.pop(context),
-          title: 'Hospitals',
+          title: 'Home Care Facilities',
           child: kBackBtn,
         ),
         body: StreamBuilder(
             stream: Firestore.instance
-                .collection('Hospitals')
+                .collection('Have any Leads')
                 .where('Status', isEqualTo: 'Verified')
-                .where('Resource Type', isEqualTo: 'Hospital')
+                .where('Resource Type', isEqualTo: 'Home Care Facilities')
                 .where('Resource Subtype',
                     isEqualTo: defaultChoiceIndex == 1
-                        ? 'Private'
+                        ? 'Home ICU Setup'
                         : defaultChoiceIndex == 2
-                            ? 'Government'
+                            ? 'Nursing Staff'
                             : null)
                 .snapshots(),
             builder:
@@ -207,7 +207,7 @@ class _VaccineHospitalState extends State<VaccineHospital> {
                             ])),
                       ]),
                     ),
-                   GetPosts(
+                    GetPosts(
                       snapshot: snapshot,
                     ),
                   ]),
