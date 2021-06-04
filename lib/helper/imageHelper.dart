@@ -1,4 +1,16 @@
 //icons
+class ImageHelper {
+//img
+  String slider1 = 'assets/img/1.png';
+  String slider2 = 'assets/img/slider2.png';
+  String slider3 = 'assets/img/slider3.png';
+}
+
+String banner = 'assets/img/banner.jpeg';
+String banner1 = 'assets/img/banner1.jpg';
+String banner2 = 'assets/img/banner2.jpg';
+String superhero = 'assets/img/super.png';
+String feedback = 'assets/img/feedback.png';
 
 String ambulance = 'assets/icons/ambulance.png';
 String bed = 'assets/icons/bed.png';
@@ -45,16 +57,6 @@ String search = 'assets/icons/searchIcon/search.png';
 String feedbackblue = 'assets/icons/feedback/feedbackBlue.png';
 String feedbackred = 'assets/icons/feedback/feedbackRed.png';
 String feedbackwhite = 'assets/icons/feedback/feedbackWhite.png';
-
-//img
-String slider1 = 'assets/img/1.png';
-String slider2 = 'assets/img/slider2.png';
-String slider3 = 'assets/img/slider3.png';
-String banner = 'assets/img/banner.jpeg';
-String banner1 = 'assets/img/banner1.jpg';
-String banner2 = 'assets/img/banner2.jpg';
-String superhero = 'assets/img/super.png';
-String feedback = 'assets/img/feedback.png';
 
 //img/plusIcon
 String plusblue = 'assets/img/plusIcon/b.png';

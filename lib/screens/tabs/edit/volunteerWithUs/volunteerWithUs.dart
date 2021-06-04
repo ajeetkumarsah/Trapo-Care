@@ -53,6 +53,7 @@ class _VolunteerWithUsState extends State<VolunteerWithUs> {
       'Hours Per day': hoursPerDay,
       'Referred By': referredBy,
       'Other Details': otherDetails,
+      'createdAt': FieldValue.serverTimestamp(),
     };
 
     ds.setData(post).whenComplete(() {

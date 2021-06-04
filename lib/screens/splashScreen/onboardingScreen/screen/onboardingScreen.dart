@@ -20,9 +20,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   void initState() {
     super.initState();
-    slider1;
-    slider2;
-    slider3;
+    ImageHelper();
   }
 
   @override

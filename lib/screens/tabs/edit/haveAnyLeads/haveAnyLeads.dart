@@ -26,6 +26,7 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
       rState,
       costperUnit,
       contactPerson,
+      usercontactNumber,
       contactNumber,
       informationSource,
       otherDetails;
@@ -34,7 +35,8 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
   List<String> city = [];
   String selectedState;
   String selectedCity;
-  // //resources
+
+  ///resources
   List<String> resource = [];
   String selectedResourceType;
   String selectedResourceSubtype;
@@ -54,7 +56,7 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
   }
 
   getContact(c) {
-    this.contactNumber = c;
+    this.usercontactNumber = c;
   }
 
   getCostperUnit(r) {
@@ -85,7 +87,7 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
     this.otherDetails = o;
   }
 
-////data create
+//data create
   createData() {
     DocumentReference ds =
         Firestore.instance.collection('Have any Leads').document();
@@ -102,6 +104,8 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
       'Information Source': informationSource,
       'User Full Name': username,
       'Last Updated': FieldValue.serverTimestamp(),
+      'createdAt': FieldValue.serverTimestamp(),
+      'userContact': usercontactNumber,
       'Status': 'Unverified',
       'Other Details': otherDetails,
       'Verified By': '',
@@ -113,7 +117,7 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
       showDialog(
           context: context,
           builder: (context) {
-            Future.delayed(Duration(seconds: 3), () {
+            Future.delayed(Duration(seconds: 2), () {
               Navigator.of(context).pop();
             });
             return AlertDialog(
@@ -157,7 +161,7 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
         );
       },
     );
-    new Future.delayed(new Duration(seconds: 4), () {
+    new Future.delayed(new Duration(seconds: 3), () {
       Navigator.pop(context); //pop dialog
     });
   }
@@ -339,7 +343,7 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
                         labelText: 'Contact Person or Organization Name',
                         onChanged: (String h) {
                           getContactPerson(h);
-                          getContactNumber(widget.lphone);
+                          getContact(widget.lphone);
                           getUserName(widget.lusername);
                           setState(() =>
                               _btnEnabled = _formKey.currentState.validate());
@@ -359,8 +363,6 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
                         limit: true,
                         onChanged: (String a) {
                           getContactNumber(a);
-                          setState(() =>
-                              _btnEnabled = _formKey.currentState.validate());
                         },
                         validator: (text) {
                           if (text == null || text.isEmpty) {

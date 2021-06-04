@@ -95,7 +95,7 @@ class _CreateBlogState extends State<CreateBlog> {
         "Resource Subtype": selectedResourceSubtype,
         'Other Details': otherDetails,
         'Status': 'Unverified',
-        'Last Updated': FieldValue.serverTimestamp(),
+        'createdAt': FieldValue.serverTimestamp(),
       };
       crudMethods.addData(postMap).then((result) {
         Navigator.pop(context);

@@ -63,7 +63,7 @@ class _BeACarporateDonorState extends State<BeACarporateDonor> {
       'Contact Number': phoneNumber,
       'Referred By': referredBy,
       'Other Details': otherDetails,
-      'Last Updated': FieldValue.serverTimestamp(),
+      'createdAt': FieldValue.serverTimestamp(),
       'Status': 'Unverified',
     };
 

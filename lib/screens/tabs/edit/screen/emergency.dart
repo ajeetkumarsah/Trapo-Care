@@ -61,7 +61,7 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
       "Resource Subtype": selectedResourceSubtype,
       'Contact Number': contactNumber,
       'User Full Name': username,
-      'Last Updated': FieldValue.serverTimestamp(),
+      'createdAt': FieldValue.serverTimestamp(),
       'Status': 'Incomplete',
       'Other Details': otherDetails,
     };

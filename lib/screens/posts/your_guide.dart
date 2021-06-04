@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:trapo_care/controller/color.dart';
 import 'package:trapo_care/helper/imageHelper.dart';
-import 'package:trapo_care/screens/posts/services/service.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:trapo_care/screens/widgets/circular_floating_buttons.dart';
 import 'package:trapo_care/screens/widgets/emptyview.dart';
@@ -16,10 +15,9 @@ class YourGuideScreen extends StatefulWidget {
 }
 
 class _YourGuideScreenState extends State<YourGuideScreen> {
-  CrudMethods crudMethods = new CrudMethods();
-  Stream blogsStream;
+  bool a = false;
   // ignore: unused_element
-  void _onLoading() {
+  _onLoading() {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -58,11 +56,14 @@ class _YourGuideScreenState extends State<YourGuideScreen> {
       stream: Firestore.instance
           .collection('Users Post')
           .where('Status', isEqualTo: 'Verified')
+          .orderBy('createdAt', descending: true)
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: redColor,
+            ),
           );
         } else if (snapshot.hasData) {
           return _buildList(context, snapshot.data.documents);

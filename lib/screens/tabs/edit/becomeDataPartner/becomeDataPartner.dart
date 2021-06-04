@@ -89,7 +89,7 @@ class _BecomeDataPartnerState extends State<BecomeDataPartner> {
       'Contact Number': phoneNumber,
       'Referred By': referredBy,
       'Other Details': otherDetails,
-      'Last Updated': FieldValue.serverTimestamp(),
+      'createdAt': FieldValue.serverTimestamp(),
       'Status': 'Unverified',
     };
 
