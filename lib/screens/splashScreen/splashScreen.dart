@@ -98,9 +98,10 @@ class _SplashScreenState extends State<SplashScreen> {
           color: redColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(bottom: 30.0),
+                padding: EdgeInsets.only(bottom: 20.0,top: 20),
                 child: Text(
                   "Made with ♥ in India",
                   softWrap: true,

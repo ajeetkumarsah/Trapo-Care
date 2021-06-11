@@ -17,79 +17,81 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: DefaultTabController(
-      length: 4,
-      initialIndex: 1,
+    return SafeArea(
       child: Scaffold(
-        backgroundColor: whiteColor,
-        appBar: AppBar(
-          backgroundColor: blueColor,
-          bottom: TabBar(
-            tabs: [
-              new Container(
-                width: MediaQuery.of(context).size.width * 0.08,
-                child: new Tab(
-                  icon: Image.asset(
-                    pwhite,
-                    fit: BoxFit.scaleDown,
+          body: DefaultTabController(
+        length: 4,
+        initialIndex: 1,
+        child: Scaffold(
+          backgroundColor: whiteColor,
+          appBar: AppBar(
+            backgroundColor: blueColor,
+            bottom: TabBar(
+              tabs: [
+                new Container(
+                  width: MediaQuery.of(context).size.width * 0.08,
+                  child: new Tab(
+                    icon: Image.asset(
+                      pwhite,
+                      fit: BoxFit.scaleDown,
+                    ),
                   ),
                 ),
+                new Container(
+                    width: 90,
+                    child: new Tab(
+                      text: 'Resources',
+                    )),
+                new Container(
+                    width: MediaQuery.of(context).size.width * 0.17,
+                    child: new Tab(
+                      text: 'Leads',
+                    )),
+                new Container(
+                    width: MediaQuery.of(context).size.width * 0.17,
+                    child: new Tab(
+                      text: 'Posts',
+                    )),
+              ],
+              indicatorWeight: 7,
+              indicatorColor: redColor,
+              labelStyle: TextStyle(
+                fontSize: 18.0,
               ),
-              new Container(
-                  width: 90,
-                  child: new Tab(
-                    text: 'Resources',
-                  )),
-              new Container(
-                  width: MediaQuery.of(context).size.width * 0.17,
-                  child: new Tab(
-                    text: 'Leads',
-                  )),
-              new Container(
-                  width: MediaQuery.of(context).size.width * 0.17,
-                  child: new Tab(
-                    text: 'Posts',
-                  )),
+              isScrollable: true,
+            ),
+            title: Container(
+              width: 150,
+              child: Image.asset(trapocarewhitered),
+            ),
+            actions: [
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Container(
+                  padding: EdgeInsets.only(right: 5),
+                  height: 18,
+                  width: 20,
+                  child: Image.asset(lwhite),
+                ),
+                Text("Kolkata",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    overflow: TextOverflow.ellipsis)
+              ]),
+              SizedBox(width: 20),
+              SizedBox(
+                width: 30,
+              ),
             ],
-            indicatorWeight: 7,
-            indicatorColor: redColor,
-            labelStyle: TextStyle(
-              fontSize: 18.0,
-            ),
-            isScrollable: true,
           ),
-          title: Container(
-            width: 150,
-            child: Image.asset(trapocarewhitered),
+          body: TabBarView(
+            children: [
+              EditScreen(),
+              ResourceScreen(),
+              UpdatedScreen(),
+              YourGuideScreen(),
+            ],
           ),
-          actions: [
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Container(
-                padding: EdgeInsets.only(right: 5),
-                height: 18,
-                width: 20,
-                child: Image.asset(lwhite),
-              ),
-              Text("Kolkata",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                  overflow: TextOverflow.ellipsis)
-            ]),
-            SizedBox(width: 20),
-            SizedBox(
-              width: 30,
-            ),
-          ],
         ),
-        body: TabBarView(
-          children: [
-            EditScreen(),
-            ResourceScreen(),
-            UpdatedScreen(),
-            YourGuideScreen(),
-          ],
-        ),
-      ),
-    ));
+      )),
+    );
   }
 }

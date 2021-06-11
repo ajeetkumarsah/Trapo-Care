@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:trapo_care/controller/color.dart';
 import 'package:trapo_care/route_generator.dart';
 import 'package:trapo_care/screens/splashScreen/splashScreen.dart';
 
@@ -14,6 +15,18 @@ void main() {
 class TrapoCare extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    
+        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+            statusBarColor:blueColor,
+            /* set Status bar color in Android devices. */
+            statusBarIconBrightness: Brightness.light,
+            /* set Status bar icons color in Android devices.*/
+            systemNavigationBarColor: Colors.transparent,
+            /* set Status bar icons color in Android devices.*/
+            systemNavigationBarIconBrightness: Brightness.light,
+            statusBarBrightness:
+                Brightness.dark) /* set Status bar icon color in iOS. */
+        );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
