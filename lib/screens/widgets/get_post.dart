@@ -100,8 +100,11 @@ class _GetPostsState extends State<GetPosts> {
                                                     : document['Resource Type'] ==
                                                             'Medicine'
                                                         ? Image.asset(medicine)
-                                                        : Image.asset(
-                                                            otherResource),
+                                                        : document['Resource Type'] ==
+                                                                'Food'
+                                                            ? Image.asset(food)
+                                                            : Image.asset(
+                                                                otherResource),
                   ),
                 ),
                 title: Container(

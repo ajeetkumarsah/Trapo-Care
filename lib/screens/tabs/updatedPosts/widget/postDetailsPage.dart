@@ -50,6 +50,7 @@ class UpdatedPostViewDetails extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height * 1.2,
             child: ListView(
+              physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
                 SizedBox(
                   height: 10.0,

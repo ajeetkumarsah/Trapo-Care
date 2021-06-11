@@ -1,8 +1,19 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:trapo_care/helper/imageHelper.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SliderWidget extends StatelessWidget {
+  _launchURL() async {
+    const url =
+        'https://milaap.org/fundraisers/support-trapo-care?utm_source=whatsapp&utm_medium=fundraisers-title&mlp_referrer_id=4999411';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -11,7 +22,7 @@ class SliderWidget extends StatelessWidget {
           items: [
             //1st Image of Slider
             GestureDetector(
-                onTap: () => Navigator.of(context).pushNamed('/donateScreen'),
+                onTap: () => _launchURL(),
                 child: Container(
                   alignment: Alignment.bottomRight,
                   width: MediaQuery.of(context).size.width,
@@ -38,7 +49,7 @@ class SliderWidget extends StatelessWidget {
                 )),
 
             GestureDetector(
-                onTap: () => Navigator.of(context).pushNamed('/donateScreen'),
+                onTap: () => _launchURL(),
                 child: Container(
                   alignment: Alignment.bottomRight,
                   margin: EdgeInsets.only(top: 6, bottom: 6),

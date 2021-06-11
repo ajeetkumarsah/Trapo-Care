@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trapo_care/screens/coWin/coWin_Screen.dart';
 import 'package:trapo_care/screens/coWin/hospital.dart';
-import 'package:trapo_care/screens/donate/donate_screen.dart';
 import 'package:trapo_care/screens/feedback/feedback.dart';
 import 'package:trapo_care/screens/homeScreen/homeScreen.dart';
 import 'package:trapo_care/screens/posts/helper/create_post.dart';
@@ -77,8 +76,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => SurveyScreenNew());
       case '/userGuideScreen':
         return MaterialPageRoute(builder: (_) => YourGuide());
-      case '/donateScreen':
-        return MaterialPageRoute(builder: (_) => DonateScreen());
+
       case '/coWinScreen':
         return MaterialPageRoute(builder: (_) => CoWinScreen());
       case '/vaccineHospital':
@@ -140,4 +138,3 @@ class RouteGenerator {
     }
   }
 }
-

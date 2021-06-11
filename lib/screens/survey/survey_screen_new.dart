@@ -147,19 +147,17 @@ class SplashScreenState extends State<SurveyScreenNew>
     return Scaffold(
       resizeToAvoidBottomInset: true,
       key: _scaffoldKey,
-      body: Center(
-        child: Container(
-          padding: EdgeInsets.all(16.0),
-          child: _animateController.isCompleted
-              ? getPages(_width)
-              : AnimationBox(
-                  controller: _animateController,
-                  screenWidth: _width - 32.0,
-                  onStartAnimation: () {
-                    _startAnimation();
-                  },
-                ),
-        ),
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        child: _animateController.isCompleted
+            ? getPages(_width)
+            : AnimationBox(
+                controller: _animateController,
+                screenWidth: _width - 32.0,
+                onStartAnimation: () {
+                  _startAnimation();
+                },
+              ),
       ),
       bottomNavigationBar: _animateController.isCompleted
           ? BottomAppBar(
@@ -216,18 +214,19 @@ class SplashScreenState extends State<SurveyScreenNew>
     return SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
               color: Colors.white,
               margin: EdgeInsets.only(top: 30.0),
               height: 10.0,
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(2, (int index) {
                   return Container(
+                    alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: index <= curIndex ? redColor : Colors.grey,
                       borderRadius: BorderRadius.all(Radius.circular(2.0)),
@@ -524,52 +523,49 @@ class SplashScreenState extends State<SurveyScreenNew>
   }
 
   Widget _getThirdStep() {
-    return Expanded(
-      child: Container(
-        margin: EdgeInsets.only(top: 34.0),
-        child: Transform(
-          transform: new Matrix4.translationValues(
-              0.0, 50.0 * (1.0 - thirdTranformAnimation.value), 0.0),
-          child: Opacity(
-            opacity: thirdTranformAnimation.value,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(image: AssetImage(survey2))),
-                ),
-                Padding(
-                    padding: const EdgeInsets.only(
-                        top: 50.0, bottom: 20.0, left: 20, right: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Thank you for taking the survey!',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: blueColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22.0),
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Text(
-                          '#StaySafe',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              color: blueColor,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w300),
-                        ),
-                      ],
-                    )),
-              ],
-            ),
+    return Container(
+      // alignment: Alignment.center,
+      margin: EdgeInsets.only(top: 50.0),
+      child: Transform(
+        transform: new Matrix4.translationValues(
+            0.0, 90.0 * (1.0 - thirdTranformAnimation.value), 0.0),
+        child: Opacity(
+          opacity: thirdTranformAnimation.value,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.3,
+                decoration: BoxDecoration(
+                    image: DecorationImage(image: AssetImage(survey2))),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Text(
+                'Thank you for taking the survey!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: blueColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22.0),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                '#StaySafe',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    color: blueColor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w300),
+              ),
+            ],
           ),
         ),
       ),
@@ -673,7 +669,7 @@ class AnimationBox extends StatelessWidget {
         ),
         numberOfStep = IntTween(
           begin: 1,
-          end: 4,
+          end: 2,
         ).animate(
           CurvedAnimation(
             parent: controller,

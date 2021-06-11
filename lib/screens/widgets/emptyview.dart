@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:trapo_care/controller/color.dart';
 import 'package:trapo_care/helper/imageHelper.dart';
@@ -17,11 +18,24 @@ class EmptyView extends StatelessWidget {
             elevation: 10.0,
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Image.asset(
-                empty,
-                height: _height * 0.2,
-                width: _width * 0.3,
-                fit: BoxFit.fitWidth,
+              Container(
+                height: 250,
+                width: 250,
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: blueColor.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(900),
+                ),
+                child: Lottie.asset(
+                  'assets/animation/corona.json',
+                  repeat: true,
+                  reverse: true,
+                  animate: true,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              SizedBox(
+                height: 30,
               ),
               Shimmer.fromColors(
                   baseColor: blueColor,
@@ -30,7 +44,7 @@ class EmptyView extends StatelessWidget {
                   child: Text('Coming back soon..',
                       style: TextStyle(
                         color: blueColor,
-                        fontWeight: FontWeight.w300,
+                        fontWeight: FontWeight.w400,
                         fontSize: 20,
                       ))),
             ]),

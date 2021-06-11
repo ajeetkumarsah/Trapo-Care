@@ -345,8 +345,6 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
                           getContactPerson(h);
                           getContact(widget.lphone);
                           getUserName(widget.lusername);
-                          setState(() =>
-                              _btnEnabled = _formKey.currentState.validate());
                         },
                         requiredField: true,
                         validator: (text) {
@@ -363,6 +361,8 @@ class _HaveAnyLeadsState extends State<HaveAnyLeads> {
                         limit: true,
                         onChanged: (String a) {
                           getContactNumber(a);
+                          setState(() =>
+                              _btnEnabled = _formKey.currentState.validate());
                         },
                         validator: (text) {
                           if (text == null || text.isEmpty) {
