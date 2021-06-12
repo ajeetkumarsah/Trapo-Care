@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -235,9 +236,10 @@ class _EditScreenState extends State<EditScreen> with TickerProviderStateMixin {
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 ),
-                Text(
+                AutoSizeText(
                   "We’re a team of strangers. A common mission -- to help India during the Covid crisis, brought us all together to create this platform.We need your support. If you’ve any verified information, we sincerely request you to add it. Don’t worry! We’ll verify it before publishing. If you want to help us in verifying and updating all the information, please become a volunteer. We need you. If you’ve developed a similar platform, let’s join hands to create a common database, enabling consistent information across the platforms.",
                   textAlign: TextAlign.center,
+                  minFontSize: 10,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
                 ),
                 SizedBox(
@@ -258,16 +260,32 @@ class _EditScreenState extends State<EditScreen> with TickerProviderStateMixin {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            AutoSizeText(
                               'Have Any leads?',
                               style: TextStyle(color: whiteColor, fontSize: 18),
+                              minFontSize: 14,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            Text(
+                            AutoSizeText(
                               'Click Here To Submit Information.',
                               style: TextStyle(
                                   color: whiteColor.withOpacity(0.5),
                                   fontSize: 15),
+                              minFontSize: 10,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
+                            // Text(
+                            //   'Have Any leads?',
+                            //   style: TextStyle(color: whiteColor, fontSize: 18),
+                            // ),
+                            // Text(
+                            //   'Click Here To Submit Information.',
+                            //   style: TextStyle(
+                            //       color: whiteColor.withOpacity(0.5),
+                            //       fontSize: 15),
+                            // ),
                           ],
                         ))),
                 SizedBox(
@@ -289,16 +307,32 @@ class _EditScreenState extends State<EditScreen> with TickerProviderStateMixin {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            AutoSizeText(
                               'Volunteer With Us',
                               style: TextStyle(color: whiteColor, fontSize: 18),
+                              minFontSize: 14,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            Text(
+                            AutoSizeText(
                               'Click Here To Join The Mission.',
                               style: TextStyle(
                                   color: whiteColor.withOpacity(0.5),
                                   fontSize: 15),
+                              minFontSize: 10,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
+                            // Text(
+                            //   'Volunteer With Us',
+                            //   style: TextStyle(color: whiteColor, fontSize: 18),
+                            // ),
+                            // Text(
+                            //   'Click Here To Join The Mission.',
+                            //   style: TextStyle(
+                            //       color: whiteColor.withOpacity(0.5),
+                            //       fontSize: 15),
+                            // ),
                           ],
                         ))),
                 SizedBox(
@@ -320,16 +354,28 @@ class _EditScreenState extends State<EditScreen> with TickerProviderStateMixin {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            AutoSizeText(
                               'Become Data Partner',
                               style: TextStyle(color: whiteColor, fontSize: 18),
+                              minFontSize: 14,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            Text(
+                            AutoSizeText(
                               'Click Here To Join as a Partner.',
                               style: TextStyle(
                                   color: whiteColor.withOpacity(0.5),
                                   fontSize: 15),
+                              minFontSize: 10,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
+                            // Text(
+                            //   'Click Here To Join as a Partner.',
+                            //   style: TextStyle(
+                            //       color: whiteColor.withOpacity(0.5),
+                            //       fontSize: 15),
+                            // ),
                           ],
                         ))),
                 SizedBox(
@@ -351,16 +397,28 @@ class _EditScreenState extends State<EditScreen> with TickerProviderStateMixin {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Be a Carporate Donor',
+                            AutoSizeText(
+                              'Be a Corporate Donor',
                               style: TextStyle(color: whiteColor, fontSize: 18),
+                              minFontSize: 14,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            Text(
+                            AutoSizeText(
                               'Click Here To Join as a Donor.',
                               style: TextStyle(
                                   color: whiteColor.withOpacity(0.5),
                                   fontSize: 15),
+                              minFontSize: 10,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
+                            // Text(
+                            //   'Click Here To Join as a Donor.',
+                            //   style: TextStyle(
+                            //       color: whiteColor.withOpacity(0.5),
+                            //       fontSize: 15),
+                            // ),
                           ],
                         ))),
                 SizedBox(

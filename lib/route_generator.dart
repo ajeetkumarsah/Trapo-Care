@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:trapo_care/screens/coWin/coWin_Screen.dart';
+
 import 'package:trapo_care/screens/coWin/hospital.dart';
 import 'package:trapo_care/screens/feedback/feedback.dart';
 import 'package:trapo_care/screens/homeScreen/homeScreen.dart';
-import 'package:trapo_care/screens/posts/helper/create_post.dart';
-import 'package:trapo_care/screens/posts/your_guide.dart';
 import 'package:trapo_care/screens/survey/last_page.dart';
 import 'package:trapo_care/screens/survey/survey_screen_new.dart';
 import 'package:trapo_care/screens/tabs/edit/argument/haveAnyLeadsArgument.dart';
 import 'package:trapo_care/screens/tabs/edit/beACarporateDonor/beACarporateDonor.dart';
+
 import 'package:trapo_care/screens/tabs/edit/becomeDataPartner/becomeDataPartner.dart';
 import 'package:trapo_care/screens/tabs/edit/haveAnyLeads/haveAnyLeads.dart';
 import 'package:trapo_care/screens/tabs/edit/screen/emergency.dart';
 import 'package:trapo_care/screens/tabs/edit/volunteerWithUs/volunteerWithUs.dart';
+import 'package:trapo_care/screens/tabs/posts/helper/create_post.dart';
+import 'package:trapo_care/screens/tabs/posts/your_guide.dart';
 import 'package:trapo_care/screens/tabs/resources/argument.dart/resourcesArgument.dart';
 import 'package:trapo_care/screens/tabs/updatedPosts/widget/postDetailsPage.dart';
 import 'package:trapo_care/screens/widgets/emptyview.dart';
@@ -46,7 +47,7 @@ class RouteGenerator {
       case '/covid':
         return MaterialPageRoute(builder: (_) => Covid());
       case '/beACarporateDonor':
-        return MaterialPageRoute(builder: (_) => BeACarporateDonor());
+        return MaterialPageRoute(builder: (_) => BeACorporateDonor());
       case '/becomeDataPartner':
         return MaterialPageRoute(builder: (_) => BecomeDataPartner());
       case '/volunteerWithUs':
@@ -77,8 +78,6 @@ class RouteGenerator {
       case '/userGuideScreen':
         return MaterialPageRoute(builder: (_) => YourGuide());
 
-      case '/coWinScreen':
-        return MaterialPageRoute(builder: (_) => CoWinScreen());
       case '/vaccineHospital':
         return MaterialPageRoute(builder: (_) => VaccineHospital());
 

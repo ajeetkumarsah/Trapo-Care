@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:trapo_care/controller/color.dart';
 
@@ -65,14 +66,23 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                           alignment: Alignment.centerLeft,
                           child: Padding(
                             padding: const EdgeInsets.only(left: 30),
-                            child: Text(
+                            child: AutoSizeText(
                               title,
                               style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontSize: fontSize != null ? fontSize : 23,
-                                color: whiteColor,
-                              ),
+                                  color: whiteColor,
+                                  fontSize: fontSize != null ? fontSize : 23),
+                              minFontSize: 12,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
+                            //  Text(
+                            //   title,
+                            //   style: TextStyle(
+                            //     fontWeight: FontWeight.w300,
+                            //     fontSize: fontSize != null ? fontSize : 23,
+                            //     color: whiteColor,
+                            //   ),
+                            // ),
                           ),
                         ),
                       ),

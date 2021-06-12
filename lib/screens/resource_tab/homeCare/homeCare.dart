@@ -1,10 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:trapo_care/controller/color.dart';
-import 'package:trapo_care/helper/imageHelper.dart';
 import 'package:trapo_care/screens/widgets/custom_appbar.dart';
 import 'package:trapo_care/screens/widgets/get_post.dart';
+import 'package:trapo_care/screens/widgets/nothing_found.dart';
 
 class HomeCare extends StatefulWidget {
   @override
@@ -29,7 +28,7 @@ class _HomeCareState extends State<HomeCare> {
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
-    double _width = MediaQuery.of(context).size.width;
+    //double _width = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: whiteColor,
         resizeToAvoidBottomInset: true,
@@ -116,35 +115,10 @@ class _HomeCareState extends State<HomeCare> {
                                 ])),
                           ]),
                         ),
-                        SizedBox(
-                          height: _height * 0.3,
+                         SizedBox(
+                          height: _height * 0.2,
                         ),
-                        Center(
-                          child: Material(
-                            type: MaterialType.transparency,
-                            elevation: 10.0,
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    empty,
-                                    height: _height * 0.2,
-                                    width: _width * 0.3,
-                                    fit: BoxFit.fitWidth,
-                                  ),
-                                  Shimmer.fromColors(
-                                      baseColor: blueColor,
-                                      highlightColor: Colors.grey[100],
-                                      enabled: true,
-                                      child: Text('Nothing found...',
-                                          style: TextStyle(
-                                            color: blueColor,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20,
-                                          ))),
-                                ]),
-                          ),
-                        )
+                        NothingFoundScreen(),
                       ],
                     ));
               } else if (snapshot.hasData) {

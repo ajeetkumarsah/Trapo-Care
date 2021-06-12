@@ -5,12 +5,12 @@ import 'package:trapo_care/controller/color.dart';
 import 'package:trapo_care/screens/widgets/custom_appbar.dart';
 import 'package:trapo_care/screens/widgets/myTextFormField.dart';
 
-class BeACarporateDonor extends StatefulWidget {
+class BeACorporateDonor extends StatefulWidget {
   @override
-  _BeACarporateDonorState createState() => _BeACarporateDonorState();
+  _BeACorporateDonorState createState() => _BeACorporateDonorState();
 }
 
-class _BeACarporateDonorState extends State<BeACarporateDonor> {
+class _BeACorporateDonorState extends State<BeACorporateDonor> {
   String username,
       phoneNumber,
       companyEmail,
@@ -83,7 +83,7 @@ class _BeACarporateDonorState extends State<BeACarporateDonor> {
                 textAlign: TextAlign.center,
               ),
               content: Text(
-                'Thank you for becoming a Carporate Donor! ;)',
+                'Thank you for becoming a Corporate Donor! ;)',
                 textAlign: TextAlign.center,
               ),
             );
@@ -134,7 +134,7 @@ class _BeACarporateDonorState extends State<BeACarporateDonor> {
       resizeToAvoidBottomInset: true,
       appBar: CustomAppBar(
         onPressed: () => Navigator.pop(context),
-        title: 'Be a Carporate Donor',
+        title: 'Be a Corporate Donor',
         child: kBackBtn,
       ),
       body: Padding(

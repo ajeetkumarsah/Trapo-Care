@@ -5,6 +5,7 @@ import 'package:trapo_care/helper/imageHelper.dart';
 import 'package:trapo_care/screens/tabs/updatedPosts/widget/search_screen.dart';
 import 'package:trapo_care/screens/widgets/circular_floating_buttons.dart';
 import 'package:trapo_care/screens/widgets/get_post.dart';
+import 'package:trapo_care/screens/widgets/nothing_found.dart';
 
 class UpdatedScreen extends StatefulWidget {
   @override
@@ -82,7 +83,9 @@ class _UpdatedScreenState extends State<UpdatedScreen>
                       child: CircularProgressIndicator(),
                     );
                   }
-
+                  if (!snapshot.hasData || snapshot.data.documents.isEmpty) {
+                    return NothingFoundScreen();
+                  }
                   return GetPosts(
                     snapshot: snapshot,
                   );

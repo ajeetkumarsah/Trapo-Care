@@ -5,6 +5,7 @@ import 'package:trapo_care/helper/imageHelper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:trapo_care/screens/widgets/circular_floating_buttons.dart';
 import 'package:trapo_care/screens/widgets/emptyview.dart';
+import 'package:trapo_care/screens/widgets/nothing_found.dart';
 import 'helper/create_post.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:shimmer/shimmer.dart';
@@ -61,10 +62,12 @@ class _YourGuideScreenState extends State<YourGuideScreen> {
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return Center(
-            child: CircularProgressIndicator(
-              color: redColor,
-            ),
+            child: CircularProgressIndicator(),
           );
+        }
+
+        if (!snapshot.hasData || snapshot.data.documents.isEmpty) {
+          return NothingFoundScreen();
         } else if (snapshot.hasData) {
           return _buildList(context, snapshot.data.documents);
         } else {

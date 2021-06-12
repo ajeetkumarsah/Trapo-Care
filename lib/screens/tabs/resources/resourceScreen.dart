@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trapo_care/controller/color.dart';
@@ -93,36 +94,76 @@ class _ResourceScreenState extends State<ResourceScreen>
                       height: 210,
                       child: SliderWidget(),
                     ),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('COVID-19 Resources\n What do you need?',
-                              style: TextStyle(
-                                  color: blueColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17),
-                              overflow: TextOverflow.ellipsis),
-                          GestureDetector(
-                              onTap: () {
-                                checkFirstSeen();
-                              },
-                              child: Container(
-                                  height: 35,
-                                  width: 120,
-                                  decoration: BoxDecoration(
-                                      color: blueColor,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  child: Center(
-                                    child: Text(
-                                      'GET VACCINE',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ))),
-                        ],
+                    ListTile(
+                      title: AutoSizeText(
+                        'COVID-19 Resources\n What do you need?',
+                        style: TextStyle(
+                            color: blueColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17),
+                        minFontSize: 12,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
+                      trailing: GestureDetector(
+                          onTap: () {
+                            checkFirstSeen();
+                          },
+                          child: Container(
+                              height: 35,
+                              width: 120,
+                              padding: EdgeInsets.all(4.0),
+                              decoration: BoxDecoration(
+                                  color: blueColor,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Center(
+                                child: Text(
+                                  'GET VACCINE',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ))),
                     ),
+                    // Container(
+                    //   padding: EdgeInsets.all(10),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //     children: [
+                    //       AutoSizeText(
+                    //         'COVID-19 Resources\n What do you need?',
+                    //         style: TextStyle(
+                    //             color: blueColor,
+                    //             fontWeight: FontWeight.bold,
+                    //             fontSize: 17),
+                    //         minFontSize: 12,
+                    //         maxLines: 2,
+                    //         overflow: TextOverflow.ellipsis,
+                    //       ),
+                    //       // Text('COVID-19 Resources\n What do you need?',
+                    //       //     style: TextStyle(
+                    //       //         color: blueColor,
+                    //       //         fontWeight: FontWeight.bold,
+                    //       //         fontSize: 17),
+                    //       //     overflow: TextOverflow.ellipsis),
+                    //       GestureDetector(
+                    //           onTap: () {
+                    //             checkFirstSeen();
+                    //           },
+                    //           child: Container(
+                    //               height: 35,
+                    //               width: 120,
+                    //               decoration: BoxDecoration(
+                    //                   color: blueColor,
+                    //                   borderRadius: BorderRadius.circular(20)),
+                    //               child: Center(
+                    //                 child: Text(
+                    //                   'GET VACCINE',
+                    //                   style: TextStyle(color: Colors.white),
+                    //                 ),
+                    //               ))),
+                    //     ],
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

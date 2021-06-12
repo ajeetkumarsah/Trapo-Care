@@ -2,8 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:trapo_care/controller/color.dart';
 import 'package:trapo_care/helper/imageHelper.dart';
 import 'package:trapo_care/screens/widgets/custom_appbar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SurveyLastScreen extends StatelessWidget {
+  _launchURL() async {
+    const url = 'https://www.cowin.gov.in/home';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +54,7 @@ class SurveyLastScreen extends StatelessWidget {
                   margin: EdgeInsets.only(left: 16.0, right: 16),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacementNamed(context, '/coWinScreen');
+                      _launchURL();
                     },
                     child: Container(
                       height: 55,

@@ -97,7 +97,8 @@ class UpdatedPostViewDetails extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Icon(
-                    FontAwesomeIcons.usps,
+                    FontAwesomeIcons.userAlt,
+                    size: 22,
                     color: blueColor,
                   ),
                   title: Text(
@@ -123,7 +124,7 @@ class UpdatedPostViewDetails extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Icon(
-                    FontAwesomeIcons.userAlt,
+                    FontAwesomeIcons.battleNet,
                     color: blueColor,
                   ),
                   title: Text('Resource Sub Type'),
@@ -135,6 +136,7 @@ class UpdatedPostViewDetails extends StatelessWidget {
                 ListTile(
                   leading: Icon(
                     FontAwesomeIcons.rupeeSign,
+                    size: 22,
                     color: blueColor,
                   ),
                   title: Text('Cost per Unit'),

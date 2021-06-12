@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:trapo_care/controller/color.dart';
 import 'package:trapo_care/helper/imageHelper.dart';
-import 'package:trapo_care/screens/posts/your_guide.dart';
 import 'package:trapo_care/screens/tabs/edit/screen/list.dart';
+import 'package:trapo_care/screens/tabs/posts/your_guide.dart';
 import 'package:trapo_care/screens/tabs/resources/resourceScreen.dart';
 import 'package:trapo_care/screens/tabs/updatedPosts/updatedScreen.dart';
 
@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           backgroundColor: whiteColor,
           appBar: AppBar(
             backgroundColor: blueColor,
+            leadingWidth: MediaQuery.of(context).size.width,
             bottom: TabBar(
               tabs: [
                 new Container(
@@ -55,9 +56,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ],
               indicatorWeight: 7,
               indicatorColor: redColor,
-              labelStyle: TextStyle(
-                fontSize: 18.0,
-              ),
+              // labelStyle: TextStyle(
+              //   fontSize: 16.0,
+              // ),
               isScrollable: true,
             ),
             title: Container(

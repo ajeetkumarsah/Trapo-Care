@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:trapo_care/controller/color.dart';
+// ignore: unused_import
 import 'package:trapo_care/helper/imageHelper.dart';
 
 // ignore: must_be_immutable
 class EmptyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final double _height = MediaQuery.of(context).size.height;
-    final double _width = MediaQuery.of(context).size.width;
+    // final double _height = MediaQuery.of(context).size.height;
+    // final double _width = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: whiteColor,
         body: Center(

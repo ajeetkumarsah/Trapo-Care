@@ -1,58 +1,49 @@
-// import 'dart:io';
+import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:trapo_care/controller/color.dart';
 
-// import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:firebase_storage/firebase_storage.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
-
-// class NewScreen extends StatelessWidget {
-//   int count = 0;
-//   void _addImages() {
-//     var storage = FirebaseStorage.instance;
-//     List<String> listOfImage = [
-//       'assets/images/avatar.png',
-//       'assets/images/background.png',
-//       'assets/images/glap.png',
-//       'assets/images/loader.png',
-//       'assets/images/logo-dark.png',
-//       'assets/images/logo-white.png',
-//     ];
-//     listOfImage.forEach((img) async {
-//       String imageName = img
-//           .substring(img.lastIndexOf("/"), img.lastIndexOf("."))
-//           .replaceAll("/", "");
-
-//       String path = img.substring(img.indexOf("/") + 1, img.lastIndexOf("/"));
-
-//       final Directory systemTempDir = Directory.systemTemp;
-//       final byteData = await rootBundle.load(img);
-//       final file = File('${systemTempDir.path}/$imageName.jpeg');
-//       await file.writeAsBytes(byteData.buffer
-//           .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
-//       TaskSnapshot taskSnapshot =
-//           await storage.ref('$path/$imageName').putFile(file);
-//       final String downloadUrl = await taskSnapshot.ref.getDownloadURL();
-//       await Firestore.instance
-//           .collection(path)
-//           .add({"url": downloadUrl, "name": imageName});
-//       count++;
-//       print(count);
-//     });
-//     print('finished.............');
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: _addImages,
-//       ),
-//       appBar: AppBar(
-//         title: Text('Adding images'),
-//       ),
-//       body: Center(
-//         child: Text('Adding Images to Firebase'),
-//       ),
-//     );
-//   }
-// }
+class NothingFoundScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // double _height = MediaQuery.of(context).size.height;
+    // double _width = MediaQuery.of(context).size.width;
+    return Center(
+      child: Material(
+        type: MaterialType.transparency,
+        elevation: 10.0,
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Container(
+            height: 250,
+            width: 250,
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: blueColor.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(900),
+            ),
+            child: Lottie.asset(
+              'assets/animation/searching.json',
+              repeat: true,
+              reverse: true,
+              animate: true,
+              fit: BoxFit.cover,
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Shimmer.fromColors(
+              baseColor: blueColor,
+              highlightColor: Colors.grey[100],
+              enabled: true,
+              child: Text('Nothing found...',
+                  style: TextStyle(
+                    color: blueColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ))),
+        ]),
+      ),
+    );
+  }
+}

@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:random_string/random_string.dart';
 import 'package:trapo_care/controller/color.dart';
-import 'package:trapo_care/screens/posts/services/service.dart';
 import 'package:trapo_care/screens/tabs/edit/helper/helper.dart';
+import 'package:trapo_care/screens/tabs/posts/services/service.dart';
 import 'package:trapo_care/screens/widgets/custom_appbar.dart';
 import 'package:trapo_care/screens/widgets/myTextFormField.dart';
 
@@ -150,13 +150,13 @@ class _CreateBlogState extends State<CreateBlog> {
                         margin: EdgeInsets.symmetric(horizontal: 16),
                         height: 170,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.grey[200],
                             borderRadius: BorderRadius.circular(6)),
                         width: MediaQuery.of(context).size.width,
                         child: Icon(
                           Icons.add_a_photo_outlined,
                           size: 40,
-                          color: blueColor,
+                          color: redColor,
                         ),
                       )),
             SizedBox(
