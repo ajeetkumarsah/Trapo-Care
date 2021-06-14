@@ -1,4 +1,4 @@
-package com.aminem.trapo.care
+package com.tech.trapo.care
 
 import io.flutter.embedding.android.FlutterActivity
 

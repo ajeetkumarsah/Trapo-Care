@@ -1,47 +1,114 @@
 {
-  "project_info": {
-    "project_number": "970581557155",
-    "project_id": "trapo-care",
-    "storage_bucket": "trapo-care.appspot.com"
-  },
-  "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:970581557155:android:6e9166bca24f65514a6416",
-        "android_client_info": {
-          "package_name": "com.aminem.trapo.care"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "970581557155-lr22o4miamfvbu65o71q19ieea73ja0a.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.aminem.trapo.care",
-            "certificate_hash": "168ecf4aae39f9a546c922c706fed1a0803c6174"
-          }
+    "project_info": {
+        "project_number": "970581557155",
+        "firebase_url": "https://trapo-care-default-rtdb.firebaseio.com",
+        "project_id": "trapo-care",
+        "storage_bucket": "trapo-care.appspot.com"
+    },
+    "client": [{
+            "client_info": {
+                "mobilesdk_app_id": "1:970581557155:android:6e9166bca24f65514a6416",
+                "android_client_info": {
+                    "package_name": "com.aminem.trapo.care"
+                }
+            },
+            "oauth_client": [{
+                    "client_id": "970581557155-lr22o4miamfvbu65o71q19ieea73ja0a.apps.googleusercontent.com",
+                    "client_type": 1,
+                    "android_info": {
+                        "package_name": "com.aminem.trapo.care",
+                        "certificate_hash": "168ecf4aae39f9a546c922c706fed1a0803c6174"
+                    }
+                },
+                {
+                    "client_id": "970581557155-2khol73ks40sg1ie8pjhn7k13e92266s.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [{
+                "current_key": "AIzaSyD4A51ErxEWGrGMxC3KuHUhKD5F-H6--a8"
+            }],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [{
+                        "client_id": "970581557155-2khol73ks40sg1ie8pjhn7k13e92266s.apps.googleusercontent.com",
+                        "client_type": 3
+                    }]
+                }
+            }
         },
         {
-          "client_id": "970581557155-2khol73ks40sg1ie8pjhn7k13e92266s.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyD4A51ErxEWGrGMxC3KuHUhKD5F-H6--a8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "970581557155-2khol73ks40sg1ie8pjhn7k13e92266s.apps.googleusercontent.com",
-              "client_type": 3
+            "client_info": {
+                "mobilesdk_app_id": "1:970581557155:android:913bd274964c69564a6416",
+                "android_client_info": {
+                    "package_name": "com.aminem.trapocare.admin"
+                }
+            },
+            "oauth_client": [{
+                    "client_id": "970581557155-evfpso9qn3734ggkcj9tchgkro0427la.apps.googleusercontent.com",
+                    "client_type": 1,
+                    "android_info": {
+                        "package_name": "com.aminem.trapocare.admin",
+                        "certificate_hash": "b5d993ccc106b3ad24f86083223f2e4b29752893"
+                    }
+                },
+                {
+                    "client_id": "970581557155-nj81r26sagv3di31r2sm6u9d9e36aa31.apps.googleusercontent.com",
+                    "client_type": 1,
+                    "android_info": {
+                        "package_name": "com.aminem.trapocare.admin",
+                        "certificate_hash": "168ecf4aae39f9a546c922c706fed1a0803c6174"
+                    }
+                },
+                {
+                    "client_id": "970581557155-2khol73ks40sg1ie8pjhn7k13e92266s.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [{
+                "current_key": "AIzaSyD4A51ErxEWGrGMxC3KuHUhKD5F-H6--a8"
+            }],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [{
+                        "client_id": "970581557155-2khol73ks40sg1ie8pjhn7k13e92266s.apps.googleusercontent.com",
+                        "client_type": 3
+                    }]
+                }
             }
-          ]
+        },
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:970581557155:android:bacabe265443b86f4a6416",
+                "android_client_info": {
+                    "package_name": "com.tech.trapo.care"
+                }
+            },
+            "oauth_client": [{
+                    "client_id": "970581557155-6sj5u7um7ee1k9fd8a3td80mgmc96rbs.apps.googleusercontent.com",
+                    "client_type": 1,
+                    "android_info": {
+                        "package_name": "com.tech.trapo.care",
+                        "certificate_hash": "168ecf4aae39f9a546c922c706fed1a0803c6174"
+                    }
+                },
+                {
+                    "client_id": "970581557155-2khol73ks40sg1ie8pjhn7k13e92266s.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [{
+                "current_key": "AIzaSyD4A51ErxEWGrGMxC3KuHUhKD5F-H6--a8"
+            }],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [{
+                        "client_id": "970581557155-2khol73ks40sg1ie8pjhn7k13e92266s.apps.googleusercontent.com",
+                        "client_type": 3
+                    }]
+                }
+            }
         }
-      }
-    }
-  ],
-  "configuration_version": "1"
+    ],
+    "configuration_version": "1"
 }
