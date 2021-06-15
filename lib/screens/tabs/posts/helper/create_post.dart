@@ -210,7 +210,7 @@ class _CreateBlogState extends State<CreateBlog> {
                                 resource = oxygenResource;
                               } else if (r == 'Bed | ICU') {
                                 resource = bedicuResource;
-                              } else if (r == 'Blood | Plasma') {
+                              } else if (r == 'Blood Bank') {
                                 resource = bloodplasmaResource;
                               } else if (r == 'Ambulance') {
                                 resource = ambulanceResource;

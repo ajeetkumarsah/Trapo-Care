@@ -81,7 +81,7 @@ class _GetPostsState extends State<GetPosts> {
                         ? Image.asset(oxygen)
                         : document['Resource Type'] == 'Beds'
                             ? Image.asset(bed)
-                            : document['Resource Type'] == 'Plasma | Blood'
+                            : document['Resource Type'] == 'Blood Bank'
                                 ? Image.asset(bloodPlasma)
                                 : document['Resource Type'] == 'Ambulance'
                                     ? Image.asset(ambulance)

@@ -29,13 +29,8 @@ class TrapoCare extends StatelessWidget {
         );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // theme: ThemeData(
-      //   primarySwatch: kPrimaryColor,
-      // ),
       theme: ThemeData(
         primarySwatch: kPrimaryColor,
-        //textTheme: AppTheme.textTheme,
-
         fontFamily: GoogleFonts.barlow().fontFamily,
       ),
       home: SplashScreen(),

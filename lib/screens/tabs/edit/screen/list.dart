@@ -156,7 +156,7 @@ class _EditScreenState extends State<EditScreen> with TickerProviderStateMixin {
               keyboardType: TextInputType.name,
               decoration: InputDecoration(
                 icon: Icon(FontAwesomeIcons.userAlt),
-                labelText: 'Username',
+                labelText: 'Name',
               ),
             ),
             TextField(

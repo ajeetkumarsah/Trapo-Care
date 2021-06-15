@@ -4,7 +4,7 @@ List<String> resources = [
   'Resource Type*',
   'Oxygen',
   'Bed | ICU',
-  'Blood | Plasma',
+  'Blood Bank',
   'Ambulance',
   'Food',
   'Medicine',
