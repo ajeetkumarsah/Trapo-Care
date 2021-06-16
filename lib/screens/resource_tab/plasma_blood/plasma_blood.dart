@@ -41,7 +41,7 @@ class _PlasmaBloodState extends State<PlasmaBlood> {
             stream: Firestore.instance
                 .collection('Have any Leads')
                 .where('Status', isEqualTo: 'Verified')
-                .where('Resource Type', isEqualTo: 'Blood | Plasma')
+                .where('Resource Type', isEqualTo: 'Blood Bank')
                 .where('Resource Subtype',
                     isEqualTo: defaultChoiceIndex == 1
                         ? 'Blood'
