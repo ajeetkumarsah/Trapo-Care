@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:trapo_care/controller/color.dart';
-import 'package:trapo_care/helper/imageHelper.dart';
 import 'package:trapo_care/screens/widgets/custom_appbar.dart';
 import 'package:trapo_care/screens/widgets/get_post.dart';
 import 'package:trapo_care/screens/widgets/nothing_found.dart';
@@ -30,7 +28,7 @@ class _VaccineHospitalState extends State<VaccineHospital> {
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
-    double _width = MediaQuery.of(context).size.width;
+    //double _width = MediaQuery.of(context).size.width;
     return Scaffold(
         resizeToAvoidBottomInset: true,
         backgroundColor: whiteColor,
@@ -120,7 +118,7 @@ class _VaccineHospitalState extends State<VaccineHospital> {
                         SizedBox(
                           height: _height * 0.3,
                         ),
-                         NothingFoundScreen(),
+                        NothingFoundScreen(),
                       ],
                     ));
               } else if (snapshot.hasData) {
@@ -183,7 +181,7 @@ class _VaccineHospitalState extends State<VaccineHospital> {
                             ])),
                       ]),
                     ),
-                   GetPosts(
+                    GetPosts(
                       snapshot: snapshot,
                     ),
                   ]),

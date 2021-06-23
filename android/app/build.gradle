@@ -44,7 +44,7 @@ android {
 
     defaultConfig {
       
-        applicationId "com.tech.trapo.care"
+        applicationId "com.trapo.tech.trapo.care"
         multiDexEnabled true
         minSdkVersion 23
         targetSdkVersion 30
